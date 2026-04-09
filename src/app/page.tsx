@@ -1,65 +1,474 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React from "react";
+import { 
+  HeartPulse, Home, Users, MapPin, Phone, Mail, 
+  CheckCircle2, ArrowRight, Clock, Activity,
+  ShieldCheck, HeartHandshake, FileText, UserPlus, Star, Award, Heart
+} from "lucide-react";
+
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-[#F8FAFC] font-sans text-gray-900 selection:bg-teal-200 selection:text-teal-900 scroll-smooth">
+      
+      {/* Top Contact Bar */}
+      <div className="bg-[#1E3A8A] text-white py-2 hidden md:block text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <div className="flex items-center gap-6">
+            <span className="flex items-center gap-2"><MapPin className="h-4 w-4 text-teal-400" /> Serving All Areas in Minnesota</span>
+            <span className="flex items-center gap-2"><Mail className="h-4 w-4 text-teal-400" /> info@axishomehealthcare.com</span>
+          </div>
+          <div className="flex items-center gap-6">
+            <span className="flex items-center gap-2 font-bold"><Phone className="h-4 w-4 text-teal-400" /> 612-555-0000</span>
+            <a href="#contact" className="hover:text-teal-300 transition-colors">Client Portal</a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+      </div>
+
+      {/* Main Navigation */}
+      <nav className="sticky top-0 w-full bg-white z-50 shadow-sm border-b border-gray-100 transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-3 cursor-pointer">
+            <div className="bg-teal-50 p-2.5 rounded-xl border border-teal-100">
+              <HeartPulse className="h-7 w-7 text-teal-600" />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-extrabold text-2xl text-[#1E3A8A] tracking-tight leading-none">Axis</span>
+              <span className="text-[10px] font-bold text-teal-600 tracking-widest uppercase mt-1">Home Healthcare</span>
+            </div>
+          </div>
+          <div className="hidden lg:flex gap-8 items-center">
+            <a href="#about" className="text-sm font-bold text-gray-600 hover:text-teal-600 transition">About Us</a>
+            <a href="#services" className="text-sm font-bold text-gray-600 hover:text-teal-600 transition">Services</a>
+            <a href="#referrals" className="text-sm font-bold text-gray-600 hover:text-teal-600 transition">Send a Referral</a>
+            <a href="#contact" className="bg-teal-600 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-teal-700 transition-all shadow-md">
+              Set an Appointment
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-40 bg-gray-900 flex items-center justify-center text-center">
+        {/* Background Image Overlay - USING RELIABLE PEXELS CDN */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img 
+            src="https://images.pexels.com/photos/7551442/pexels-photo-7551442.jpeg?auto=compress&cs=tinysrgb&w=2000" 
+            alt="Healthcare professional caring for senior"
+            className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A] via-[#1E3A8A]/80 to-transparent"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <span className="inline-block py-1 px-3 rounded-full bg-teal-500/20 border border-teal-400/50 text-teal-300 text-sm font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
+              Your Trusted Care Partner in Minnesota
+            </span>
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.15] mb-6 text-white tracking-tight">
+              Where Your <span className="text-teal-400">Welfare</span> Comes First.
+            </h1>
+            <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto font-light">
+              You can count on Axis Home Healthcare to guide you on the right path towards a sustainable, secure, and independent future right in the comfort of your own home and community.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#services" className="bg-teal-500 text-[#1E3A8A] px-8 py-4 rounded-full font-bold text-lg hover:bg-teal-400 transition-all shadow-lg flex items-center justify-center gap-2 group">
+                Explore Our Services <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a href="#contact" className="bg-white/10 border-2 border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-colors flex items-center justify-center backdrop-blur-md">
+                Send a Referral Today
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Action Cards */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-20 hidden md:block mb-12">
+        <div className="grid grid-cols-3 gap-6">
+          <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-5 hover:-translate-y-2 transition-transform duration-300 cursor-pointer group">
+            <div className="bg-blue-50 p-4 rounded-full group-hover:bg-blue-600 group-hover:text-white transition-colors text-blue-600">
+              <FileText className="h-8 w-8" />
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-900 text-lg">Eligibility for Care</h3>
+              <p className="text-sm text-gray-500 mt-1">Is your older loved one eligible?</p>
+            </div>
+          </div>
+          <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-5 hover:-translate-y-2 transition-transform duration-300 cursor-pointer group">
+            <div className="bg-teal-50 p-4 rounded-full group-hover:bg-teal-600 group-hover:text-white transition-colors text-teal-600">
+              <Users className="h-8 w-8" />
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-900 text-lg">Meet Our Staff</h3>
+              <p className="text-sm text-gray-500 mt-1">Professionals trained for the best care.</p>
+            </div>
+          </div>
+          <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-5 hover:-translate-y-2 transition-transform duration-300 cursor-pointer group">
+            <div className="bg-amber-50 p-4 rounded-full group-hover:bg-amber-500 group-hover:text-white transition-colors text-amber-600">
+              <UserPlus className="h-8 w-8" />
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-900 text-lg">Send Referrals</h3>
+              <p className="text-sm text-gray-500 mt-1">Help someone in need today.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* About Us / Mission Section */}
+      <section id="about" className="py-20 bg-[#F8FAFC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 text-teal-700 text-sm font-bold tracking-wide uppercase mb-6 border border-teal-100">
+                <Heart className="h-4 w-4" /> Introducing Axis Home Healthcare
+              </div>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#1E3A8A] mb-6 leading-tight">
+                Dedicated Support for Your Peace of Mind
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-6 text-lg">
+                There is a multitude of challenges that prevent senior adults and those with physical or mental disabilities from being able to acquire the things they need to live sustainably. These include sustainable housing, employment, financial stability, care assistance, treatment, and more.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8 text-lg">
+                That is why at <strong>Axis Home Healthcare</strong>, we work closely with our clients to provide them the means and support they will need. We make it our mission to be a competent and highly-relied provider of care and support. We are committed to ensuring that every one of our clients can address their needs in a compassionate, dignified manner.
+              </p>
+              
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center text-gray-700 font-medium">
+                  <CheckCircle2 className="h-6 w-6 text-teal-500 mr-3 shrink-0" /> Thoroughly trained and background-checked staff.
+                </li>
+                <li className="flex items-center text-gray-700 font-medium">
+                  <CheckCircle2 className="h-6 w-6 text-teal-500 mr-3 shrink-0" /> Customized care plans tailored to individual needs.
+                </li>
+                <li className="flex items-center text-gray-700 font-medium">
+                  <CheckCircle2 className="h-6 w-6 text-teal-500 mr-3 shrink-0" /> Licensed by the state of Minnesota (MDH & DHS).
+                </li>
+              </ul>
+            </div>
+            
+            <div className="relative">
+              {/* Decorative background block */}
+              <div className="absolute inset-0 bg-teal-600 rounded-3xl transform translate-x-6 translate-y-6"></div>
+              {/* Image Container - USING RELIABLE PEXELS CDN */}
+              <div className="relative bg-gray-200 aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl group">
+                <img 
+                  src="https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=1000" 
+                  alt="Caregiver holding patient's hands compassionately" 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+                  <div className="text-white relative z-10">
+                    <h3 className="text-2xl font-bold mb-2">Holistic Care Approach</h3>
+                    <p className="text-gray-200">Bringing professional, loving care right to your doorstep.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Core Values */}
+      <section className="py-16 bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div className="p-6">
+              <div className="bg-blue-50 w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4 text-blue-600">
+                <HeartHandshake className="h-8 w-8" />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-2">Compassion</h3>
+              <p className="text-gray-500 text-sm">Treating every client with the utmost empathy, kindness, and understanding.</p>
+            </div>
+            <div className="p-6">
+              <div className="bg-teal-50 w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4 text-teal-600">
+                <ShieldCheck className="h-8 w-8" />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-2">Integrity</h3>
+              <p className="text-gray-500 text-sm">Maintaining the highest ethical standards and transparency in all we do.</p>
+            </div>
+            <div className="p-6">
+              <div className="bg-amber-50 w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4 text-amber-600">
+                <Users className="h-8 w-8" />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-2">Respect</h3>
+              <p className="text-gray-500 text-sm">Honoring the independence, privacy, and personal choices of our clients.</p>
+            </div>
+            <div className="p-6">
+              <div className="bg-indigo-50 w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4 text-indigo-600">
+                <Award className="h-8 w-8" />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-2">Excellence</h3>
+              <p className="text-gray-500 text-sm">Committing to continuous improvement and top-tier service delivery.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES SECTION */}
+      <section id="services" className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center max-w-4xl mx-auto">
+            <span className="text-teal-600 font-bold uppercase tracking-wider mb-2 block">How We Meet Your Needs</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#1E3A8A] mb-6">Services We Provide</h2>
+            <p className="text-lg text-gray-700 leading-relaxed bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
+              Our agency offers <strong>Basic Home Care services</strong> (licensed by the Minnesota Department of Health) and <strong>Home and Community-Based Services (HCBS)</strong> through the Minnesota Department of Human Services.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Basic Home Care (MDH) */}
+            <div className="bg-white rounded-[2rem] p-8 border border-gray-200 shadow-lg hover:shadow-xl hover:border-blue-300 transition-all duration-300">
+              <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-blue-100">
+                <Home className="text-blue-700 h-8 w-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Basic Home Care</h3>
+              <p className="text-sm font-bold text-blue-600 mb-6 uppercase tracking-wider flex items-center gap-1 border-b border-gray-100 pb-4">
+                <ShieldCheck className="h-4 w-4" /> MDH Licensed
+              </p>
+              
+              <ul className="space-y-4">
+                {[
+                  "Homemaking", 
+                  "Companion Services (socialization and supervision)", 
+                  "Home Health Aide Services", 
+                  "Assistance of Activities of Daily Living (ADLs)", 
+                  "Medication Reminders", 
+                  "Meal Preparation", 
+                  "Vital Signs Monitoring (if applicable)"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start text-gray-700 leading-relaxed">
+                    <CheckCircle2 className="h-5 w-5 text-blue-500 mr-3 shrink-0 mt-0.5" /> 
+                    <span className="font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* HCBS Services (DHS) */}
+            <div className="bg-white rounded-[2rem] p-8 border border-gray-200 shadow-lg hover:shadow-xl hover:border-teal-300 transition-all duration-300 flex flex-col">
+              <div className="bg-teal-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-teal-100">
+                <Users className="text-teal-700 h-8 w-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">HCBS Services</h3>
+              <p className="text-sm font-bold text-teal-600 mb-6 uppercase tracking-wider flex items-center gap-1 border-b border-gray-100 pb-4">
+                <ShieldCheck className="h-4 w-4" /> DHS Licensed
+              </p>
+              
+              <ul className="space-y-4 flex-grow">
+                {[
+                  "Individualized Home Supports (IHS) without training", 
+                  "Companion Support (provided under IHS)", 
+                  "Night Supervision", 
+                  "24 Hour Emergency Assistance", 
+                  "Respite Care"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start text-gray-700 leading-relaxed">
+                    <CheckCircle2 className="h-5 w-5 text-teal-500 mr-3 shrink-0 mt-0.5" /> 
+                    <span className="font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CFSS Services */}
+            <div className="bg-[#1E3A8A] rounded-[2rem] p-8 shadow-xl text-white transition-all duration-300">
+              <div className="bg-white/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-white/10">
+                <Activity className="text-teal-300 h-8 w-8" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2 leading-tight">Community First Services and Supports (CFSS)</h3>
+              <p className="text-sm font-bold text-teal-300 mb-6 uppercase tracking-wider flex items-center gap-1 border-b border-white/20 pb-4">
+                <ShieldCheck className="h-4 w-4" /> Through Minnesota DHS
+              </p>
+              
+              <p className="text-blue-100 mb-6 text-sm leading-relaxed">
+                CFSS helps individuals live independently at home and in the community. CFSS services include <strong className="text-white">Activities of Daily Living (ADLs)</strong>:
+              </p>
+
+              <ul className="space-y-3">
+                {[
+                  "Bathing", 
+                  "Dressing", 
+                  "Grooming", 
+                  "Toileting", 
+                  "Eating", 
+                  "Mobility / Transfers"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center text-white bg-white/5 p-3 rounded-xl border border-white/10">
+                    <CheckCircle2 className="h-5 w-5 text-teal-400 mr-3 shrink-0" /> 
+                    <span className="font-semibold tracking-wide">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-teal-600 font-bold uppercase tracking-wider mb-2 block">Client Reviews</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#1E3A8A]">Hear From Our Families</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="bg-[#F8FAFC] p-8 rounded-3xl border border-gray-200 shadow-sm relative">
+                <div className="absolute top-0 right-8 -translate-y-1/2 bg-white p-2 rounded-full border border-gray-100 shadow-sm">
+                  <Star className="text-amber-400 fill-amber-400 h-6 w-6" />
+                </div>
+                <div className="flex text-amber-400 mb-4 gap-1">
+                  <Star className="fill-current h-4 w-4" /><Star className="fill-current h-4 w-4" /><Star className="fill-current h-4 w-4" /><Star className="fill-current h-4 w-4" /><Star className="fill-current h-4 w-4" />
+                </div>
+                <p className="text-gray-600 italic mb-6 leading-relaxed">
+                  "We're proud to make a difference in the lives of many clients. Read their testimonials soon. Check back next time for updates in this section."
+                </p>
+                <div className="font-bold text-[#1E3A8A]">- Client Family Member</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section className="bg-teal-600 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
+          <div>
+            <h2 className="text-3xl font-extrabold text-white mb-2">Ready to start your home care journey?</h2>
+            <p className="text-teal-100 text-lg">Contact our team today to discuss eligibility and personalized care plans.</p>
+          </div>
+          <a href="#contact" className="bg-[#1E3A8A] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-lg whitespace-nowrap">
+            Schedule a Consultation
           </a>
         </div>
-      </main>
+      </section>
+
+      {/* Contact & Referrals Section */}
+      <section id="contact" className="py-24 bg-[#1E3A8A] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16">
+            <div>
+              <span className="text-teal-400 font-bold uppercase tracking-wider mb-2 block">Reach Out To Us</span>
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Get In Touch</h2>
+              <p className="text-blue-100 mb-10 text-lg leading-relaxed">
+                Questions? Inquiries? Referrals? Kindly fill out the form, and our dedicated care coordinators will get back to you promptly to discuss your needs.
+              </p>
+              
+              <div className="space-y-8">
+                <div className="flex items-start gap-5">
+                  <div className="bg-white/10 p-4 rounded-2xl"><MapPin className="text-teal-400 h-6 w-6" /></div>
+                  <div>
+                    <h4 className="font-bold text-xl mb-1">Office Location</h4>
+                    <p className="text-blue-200">123 Healthway Blvd, Suite 100<br/>Minneapolis, MN 55401</p>
+                    <p className="text-sm text-teal-300 mt-2 font-semibold">Service Areas: All areas in Minnesota</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-5">
+                  <div className="bg-white/10 p-4 rounded-2xl"><Phone className="text-teal-400 h-6 w-6" /></div>
+                  <div>
+                    <h4 className="font-bold text-xl mb-1">Phone Number</h4>
+                    <p className="text-blue-200">612-555-0000</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-5">
+                  <div className="bg-white/10 p-4 rounded-2xl"><Mail className="text-teal-400 h-6 w-6" /></div>
+                  <div>
+                    <h4 className="font-bold text-xl mb-1">Email Address</h4>
+                    <p className="text-blue-200">info@axishomehealthcare.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Form */}
+            <div id="referrals" className="bg-white rounded-[2rem] p-10 shadow-2xl text-gray-900 border-t-8 border-teal-500">
+              <h3 className="text-2xl font-extrabold mb-2">Send Us a Message</h3>
+              <p className="text-gray-500 mb-8">Fill out the form below to get started with our services or refer someone.</p>
+              
+              <form className="space-y-5">
+                <div className="grid grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">First Name</label>
+                    <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="John" required />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Last Name</label>
+                    <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="Doe" required />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                    <input type="email" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="john@example.com" required />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">Phone Number</label>
+                    <input type="tel" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="(612) 555-0000" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Purpose of Inquiry</label>
+                  <select className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors text-gray-700">
+                    <option>I am inquiring for myself</option>
+                    <option>I am referring a client / family member</option>
+                    <option>I have a general question</option>
+                    <option>I am interested in employment</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Message</label>
+                  <textarea rows={4} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors resize-none" placeholder="How can we help you today?"></textarea>
+                </div>
+                <button type="button" className="w-full bg-teal-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-teal-700 transition-colors shadow-lg mt-2">
+                  Submit Request
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Footer */}
+      <footer className="bg-gray-950 text-gray-400 py-12 border-t border-gray-800 text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-gray-800">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-2 mb-4">
+                <HeartPulse className="h-6 w-6 text-teal-500" />
+                <span className="font-extrabold text-xl text-white tracking-tight">Axis Home Healthcare</span>
+              </div>
+              <p className="max-w-sm text-gray-500 leading-relaxed">
+                Dedicated to providing excellent, holistic, and state-licensed care to individuals across Minnesota. 
+              </p>
+            </div>
+            <div>
+              <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Quick Links</h4>
+              <ul className="space-y-2">
+                <li><a href="#about" className="hover:text-teal-400 transition-colors">About Us</a></li>
+                <li><a href="#services" className="hover:text-teal-400 transition-colors">Our Services</a></li>
+                <li><a href="#referrals" className="hover:text-teal-400 transition-colors">Send a Referral</a></li>
+                <li><a href="#contact" className="hover:text-teal-400 transition-colors">Contact Us</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Compliance</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="hover:text-teal-400 transition-colors">MDH Guidelines</a></li>
+                <li><a href="#" className="hover:text-teal-400 transition-colors">DHS Standards</a></li>
+                <li><a href="#" className="hover:text-teal-400 transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-teal-400 transition-colors">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500">
+            <p>© Copyright {new Date().getFullYear()} - 2026 Axis Home Healthcare LLC. All Rights Reserved.</p>
+            <p>Designed for Website Accessibility.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
