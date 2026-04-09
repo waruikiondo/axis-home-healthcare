@@ -16,10 +16,10 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2"><MapPin className="h-4 w-4 text-teal-400" /> Serving All Areas in Minnesota</span>
-            <span className="flex items-center gap-2"><Mail className="h-4 w-4 text-teal-400" /> info@axishomehealthcare.com</span>
+            <span className="flex items-center gap-2"><Mail className="h-4 w-4 text-teal-400" /> Admin@axishealthmn.com</span>
           </div>
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-2 font-bold"><Phone className="h-4 w-4 text-teal-400" /> 612-555-0000</span>
+            <span className="flex items-center gap-2 font-bold"><Phone className="h-4 w-4 text-teal-400" /> 612-472-5589</span>
             <a href="#contact" className="hover:text-teal-300 transition-colors">Client Portal</a>
           </div>
         </div>
@@ -361,7 +361,7 @@ export default function LandingPage() {
                   <div className="bg-white/10 p-4 rounded-2xl"><MapPin className="text-teal-400 h-6 w-6" /></div>
                   <div>
                     <h4 className="font-bold text-xl mb-1">Office Location</h4>
-                    <p className="text-blue-200">123 Healthway Blvd, Suite 100<br/>Minneapolis, MN 55401</p>
+                    <p className="text-blue-200">7101 York Ave S, Suite 252<br/>Edina, MN 55435</p>
                     <p className="text-sm text-teal-300 mt-2 font-semibold">Service Areas: All areas in Minnesota</p>
                   </div>
                 </div>
@@ -369,14 +369,14 @@ export default function LandingPage() {
                   <div className="bg-white/10 p-4 rounded-2xl"><Phone className="text-teal-400 h-6 w-6" /></div>
                   <div>
                     <h4 className="font-bold text-xl mb-1">Phone Number</h4>
-                    <p className="text-blue-200">612-555-0000</p>
+                    <p className="text-blue-200">612-472-5589</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-5">
                   <div className="bg-white/10 p-4 rounded-2xl"><Mail className="text-teal-400 h-6 w-6" /></div>
                   <div>
                     <h4 className="font-bold text-xl mb-1">Email Address</h4>
-                    <p className="text-blue-200">info@axishomehealthcare.com</p>
+                    <p className="text-blue-200">Admin@axishealthmn.com</p>
                   </div>
                 </div>
               </div>
@@ -405,7 +405,7 @@ export default function LandingPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">Phone Number</label>
-                    <input type="tel" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="(612) 555-0000" />
+                    <input type="tel" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="(612) 472-5589" />
                   </div>
                 </div>
                 <div>
@@ -464,7 +464,7 @@ export default function LandingPage() {
           </div>
           
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500">
-            <p>© Copyright {new Date().getFullYear()} - 2026 Axis Home Healthcare LLC. All Rights Reserved.</p>
+            <p>© Copyright {new Date().getFullYear()} Axis Home Healthcare LLC. All Rights Reserved.</p>
             <p>Designed for Website Accessibility.</p>
           </div>
         </div>
