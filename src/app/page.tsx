@@ -382,14 +382,14 @@ export default function LandingPage() {
               {/* Embedded Visual Map */}
               <div className="w-full h-64 rounded-2xl overflow-hidden shadow-inner mb-8 border border-gray-200">
                 <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2825.996165243166!2d-93.3228946!3d44.8724128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f626600c9dc8ab%3A0xc301211e2f754fc3!2s7101%20York%20Ave%20S%2C%20Edina%2C%20MN%2055435!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-  width="100%" 
-  height="100%" 
-  style={{ border: 0 }} 
-  allowFullScreen      // <--- Fixed!
-  loading="lazy" 
-  referrerPolicy="no-referrer-when-downgrade"
-></iframe>
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2825.996165243166!2d-93.3228946!3d44.8724128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f626600c9dc8ab%3A0xc301211e2f754fc3!2s7101%20York%20Ave%20S%2C%20Edina%2C%20MN%2055435!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
 
               {/* GPS Directions Button */}
@@ -454,6 +454,15 @@ export default function LandingPage() {
                     <p className="text-blue-200">Admin@axishealthmn.com</p>
                   </div>
                 </div>
+
+                {/* NEW: Office Hours */}
+                <div className="flex items-center gap-5">
+                  <div className="bg-white/10 p-4 rounded-2xl"><Clock className="text-teal-400 h-6 w-6" /></div>
+                  <div>
+                    <h4 className="font-bold text-xl mb-1">Office Hours</h4>
+                    <p className="text-blue-200">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -462,30 +471,34 @@ export default function LandingPage() {
               <h3 className="text-2xl font-extrabold mb-2">Send Us a Message</h3>
               <p className="text-gray-500 mb-8">Fill out the form below to get started with our services or refer someone.</p>
               
-              <form className="space-y-5">
+              <form action="https://formsubmit.co/Admin@axishealthmn.com" method="POST" className="space-y-5">
+                <input type="hidden" name="_subject" value="New Inquiry from Axis Healthcare Website!" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://axishealthmn.com" />
+
                 <div className="grid grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">First Name</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="John" required />
+                    <input type="text" name="First_Name" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="John" required />
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">Last Name</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="Doe" required />
+                    <input type="text" name="Last_Name" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="Doe" required />
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
-                    <input type="email" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="john@example.com" required />
+                    <input type="email" name="Email" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="john@example.com" required />
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">Phone Number</label>
-                    <input type="tel" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="(612) 472-5589" />
+                    <input type="tel" name="Phone" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors" placeholder="(612) 472-5589" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">Purpose of Inquiry</label>
-                  <select className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors text-gray-700">
+                  <select name="Purpose" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors text-gray-700">
                     <option>I am inquiring for myself</option>
                     <option>I am referring a client / family member</option>
                     <option>I have a general question</option>
@@ -494,9 +507,9 @@ export default function LandingPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">Message</label>
-                  <textarea rows={4} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors resize-none" placeholder="How can we help you today?"></textarea>
+                  <textarea name="Message" rows={4} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors resize-none" placeholder="How can we help you today?" required></textarea>
                 </div>
-                <button type="button" className="w-full bg-teal-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-teal-700 transition-colors shadow-lg mt-2">
+                <button type="submit" className="w-full bg-teal-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-teal-700 transition-colors shadow-lg mt-2">
                   Submit Request
                 </button>
               </form>
