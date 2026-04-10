@@ -4,7 +4,7 @@ import React from "react";
 import { 
   HeartPulse, Home, Users, MapPin, Phone, Mail, 
   CheckCircle2, ArrowRight, Clock, Activity,
-  ShieldCheck, HeartHandshake, FileText, UserPlus, Star, Award, Heart
+  ShieldCheck, HeartHandshake, FileText, UserPlus, Star, Award, Heart, Navigation
 } from "lucide-react";
 
 export default function LandingPage() {
@@ -40,6 +40,7 @@ export default function LandingPage() {
           <div className="hidden lg:flex gap-8 items-center">
             <a href="#about" className="text-sm font-bold text-gray-600 hover:text-teal-600 transition">About Us</a>
             <a href="#services" className="text-sm font-bold text-gray-600 hover:text-teal-600 transition">Services</a>
+            <a href="#office" className="text-sm font-bold text-gray-600 hover:text-teal-600 transition">Our Office</a>
             <a href="#referrals" className="text-sm font-bold text-gray-600 hover:text-teal-600 transition">Send a Referral</a>
             <a href="#contact" className="bg-teal-600 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-teal-700 transition-all shadow-md">
               Set an Appointment
@@ -50,7 +51,6 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-40 bg-gray-900 flex items-center justify-center text-center">
-        {/* Background Image Overlay - USING RELIABLE PEXELS CDN */}
         <div className="absolute inset-0 overflow-hidden">
           <img 
             src="https://images.pexels.com/photos/7551442/pexels-photo-7551442.jpeg?auto=compress&cs=tinysrgb&w=2000" 
@@ -148,9 +148,7 @@ export default function LandingPage() {
             </div>
             
             <div className="relative">
-              {/* Decorative background block */}
               <div className="absolute inset-0 bg-teal-600 rounded-3xl transform translate-x-6 translate-y-6"></div>
-              {/* Image Container - USING RELIABLE PEXELS CDN */}
               <div className="relative bg-gray-200 aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl group">
                 <img 
                   src="https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=1000" 
@@ -217,7 +215,6 @@ export default function LandingPage() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Basic Home Care (MDH) */}
             <div className="bg-white rounded-[2rem] p-8 border border-gray-200 shadow-lg hover:shadow-xl hover:border-blue-300 transition-all duration-300">
               <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-blue-100">
                 <Home className="text-blue-700 h-8 w-8" />
@@ -245,7 +242,6 @@ export default function LandingPage() {
               </ul>
             </div>
 
-            {/* HCBS Services (DHS) */}
             <div className="bg-white rounded-[2rem] p-8 border border-gray-200 shadow-lg hover:shadow-xl hover:border-teal-300 transition-all duration-300 flex flex-col">
               <div className="bg-teal-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-teal-100">
                 <Users className="text-teal-700 h-8 w-8" />
@@ -271,7 +267,6 @@ export default function LandingPage() {
               </ul>
             </div>
 
-            {/* CFSS Services */}
             <div className="bg-[#1E3A8A] rounded-[2rem] p-8 shadow-xl text-white transition-all duration-300">
               <div className="bg-white/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-white/10">
                 <Activity className="text-teal-300 h-8 w-8" />
@@ -328,6 +323,86 @@ export default function LandingPage() {
                 <div className="font-bold text-[#1E3A8A]">- Client Family Member</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NEW SECTION: OFFICE PHOTOS & GPS DIRECTIONS */}
+      <section id="office" className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-teal-600 font-bold uppercase tracking-wider mb-2 block">Our Location</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#1E3A8A]">Visit Our Office</h2>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-gray-100">
+            {/* Left Side: Photo Grid (Updated for 4 photos) */}
+            <div className="flex flex-col gap-4">
+              {/* Main Feature Image */}
+              <img 
+                src="/images/office-exterior.jpeg" 
+                alt="Axis Home Healthcare Building Exterior" 
+                className="rounded-2xl w-full h-64 object-cover shadow-md hover:opacity-95 transition-opacity"
+              />
+              
+              {/* 3 Smaller Sub-Images */}
+              <div className="grid grid-cols-3 gap-4">
+                <img 
+                  src="/images/office-exterior-2.jpeg" 
+                  alt="Axis Home Healthcare Parking" 
+                  className="rounded-2xl w-full h-32 object-cover shadow-sm hover:opacity-95 transition-opacity"
+                />
+                <img 
+                  src="/images/office-interior.jpeg" 
+                  alt="Axis Home Healthcare Office Interior" 
+                  className="rounded-2xl w-full h-32 object-cover shadow-sm hover:opacity-95 transition-opacity"
+                />
+                <img 
+                  src="/images/office-conference.jpeg" 
+                  alt="Axis Home Healthcare Conference Room" 
+                  className="rounded-2xl w-full h-32 object-cover shadow-sm hover:opacity-95 transition-opacity"
+                />
+              </div>
+            </div>
+
+            {/* Right Side: Info & Maps */}
+            <div className="flex flex-col h-full justify-center">
+              <div className="mb-8">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">Axis Home Healthcare LLC</h3>
+                <div className="flex items-start gap-4 mb-4 text-gray-600 text-lg">
+                  <MapPin className="h-6 w-6 text-teal-600 shrink-0 mt-1" />
+                  <p>7101 York Ave S, Suite 252<br/>Edina, MN 55435</p>
+                </div>
+                <div className="flex items-center gap-4 text-gray-600 text-lg">
+                  <Clock className="h-6 w-6 text-teal-600 shrink-0" />
+                  <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                </div>
+              </div>
+
+              {/* Embedded Visual Map */}
+              <div className="w-full h-64 rounded-2xl overflow-hidden shadow-inner mb-8 border border-gray-200">
+                <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2825.996165243166!2d-93.3228946!3d44.8724128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f626600c9dc8ab%3A0xc301211e2f754fc3!2s7101%20York%20Ave%20S%2C%20Edina%2C%20MN%2055435!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+  width="100%" 
+  height="100%" 
+  style={{ border: 0 }} 
+  allowFullScreen      // <--- Fixed!
+  loading="lazy" 
+  referrerPolicy="no-referrer-when-downgrade"
+></iframe>
+              </div>
+
+              {/* GPS Directions Button */}
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=7101+York+Ave+S,+Suite+252,+Edina,+MN+55435"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-teal-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-teal-700 transition-all shadow-lg flex items-center justify-center gap-3 group"
+              >
+                <Navigation className="h-6 w-6 group-hover:-translate-y-1 transition-transform" /> 
+                Get GPS Directions
+              </a>
+            </div>
           </div>
         </div>
       </section>
