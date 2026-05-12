@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { 
   HeartPulse, Home, Users, MapPin, Phone, Mail, 
   CheckCircle2, ArrowRight, Clock, Activity,
@@ -8,6 +8,35 @@ import {
 } from "lucide-react";
 
 export default function LandingPage() {
+  // Carousel Data and State
+  const carouselImages = [
+    {
+      url: "https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      title: "Holistic Care Approach",
+      subtitle: "Bringing professional, loving care right to your doorstep."
+    },
+    {
+      url: "https://images.pexels.com/photos/3823488/pexels-photo-3823488.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      title: "Compassionate Support",
+      subtitle: "Building trust and fostering meaningful daily connections."
+    },
+    {
+      url: "https://images.pexels.com/photos/339620/pexels-photo-339620.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      title: "Empowered Independence",
+      subtitle: "Helping you maintain your lifestyle with dignity."
+    }
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Auto-play effect for the carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
+    }, 5000); // Changes image every 5 seconds
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] font-sans text-gray-900 selection:bg-teal-200 selection:text-teal-900 scroll-smooth">
       
@@ -147,22 +176,49 @@ export default function LandingPage() {
               </ul>
             </div>
             
+            {/* UPDATED: Dynamic Image Carousel */}
             <div className="relative">
               <div className="absolute inset-0 bg-teal-600 rounded-3xl transform translate-x-6 translate-y-6"></div>
               <div className="relative bg-gray-200 aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl group">
-                <img 
-                  src="https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=1000" 
-                  alt="Caregiver holding patient's hands compassionately" 
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
-                  <div className="text-white relative z-10">
-                    <h3 className="text-2xl font-bold mb-2">Holistic Care Approach</h3>
-                    <p className="text-gray-200">Bringing professional, loving care right to your doorstep.</p>
+                {carouselImages.map((img, idx) => (
+                  <div 
+                    key={idx}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      idx === currentImageIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                    }`}
+                  >
+                    <img 
+                      src={img.url} 
+                      alt={img.title} 
+                      className={`w-full h-full object-cover transition-transform duration-[10000ms] ${
+                        idx === currentImageIndex ? "scale-105" : "scale-100"
+                      }`}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+                      <div className="text-white relative w-full">
+                        <h3 className="text-2xl font-bold mb-2 drop-shadow-md">{img.title}</h3>
+                        <p className="text-gray-200 drop-shadow-sm">{img.subtitle}</p>
+                        
+                        {/* Carousel Indicators */}
+                        <div className="flex gap-2 mt-6">
+                          {carouselImages.map((_, dotIdx) => (
+                            <button 
+                              key={dotIdx}
+                              onClick={() => setCurrentImageIndex(dotIdx)}
+                              className={`h-1.5 rounded-full transition-all duration-300 ${
+                                dotIdx === currentImageIndex ? "w-6 bg-teal-400" : "w-2 bg-white/40 hover:bg-white/80"
+                              }`}
+                              aria-label={`Go to slide ${dotIdx + 1}`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -327,7 +383,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* NEW SECTION: OFFICE PHOTOS & GPS DIRECTIONS */}
+      {/* Office Photos & GPS Directions */}
       <section id="office" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -336,16 +392,13 @@ export default function LandingPage() {
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12 items-center bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-gray-100">
-            {/* Left Side: Photo Grid (Updated for 4 photos) */}
             <div className="flex flex-col gap-4">
-              {/* Main Feature Image */}
               <img 
                 src="/images/office-exterior.jpeg" 
                 alt="Axis Home Healthcare Building Exterior" 
                 className="rounded-2xl w-full h-64 object-cover shadow-md hover:opacity-95 transition-opacity"
               />
               
-              {/* 3 Smaller Sub-Images */}
               <div className="grid grid-cols-3 gap-4">
                 <img 
                   src="/images/office-exterior-2.jpeg" 
@@ -365,7 +418,6 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Right Side: Info & Maps */}
             <div className="flex flex-col h-full justify-center">
               <div className="mb-8">
                 <h3 className="text-3xl font-bold text-gray-900 mb-4">Axis Home Healthcare LLC</h3>
@@ -379,7 +431,6 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* Embedded Visual Map */}
               <div className="w-full h-64 rounded-2xl overflow-hidden shadow-inner mb-8 border border-gray-200">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2825.996165243166!2d-93.3228946!3d44.8724128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f626600c9dc8ab%3A0xc301211e2f754fc3!2s7101%20York%20Ave%20S%2C%20Edina%2C%20MN%2055435!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
@@ -392,7 +443,6 @@ export default function LandingPage() {
                 ></iframe>
               </div>
 
-              {/* GPS Directions Button */}
               <a 
                 href="https://www.google.com/maps/dir/?api=1&destination=7101+York+Ave+S,+Suite+252,+Edina,+MN+55435"
                 target="_blank"
@@ -455,7 +505,6 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                {/* NEW: Office Hours */}
                 <div className="flex items-center gap-5">
                   <div className="bg-white/10 p-4 rounded-2xl"><Clock className="text-teal-400 h-6 w-6" /></div>
                   <div>
