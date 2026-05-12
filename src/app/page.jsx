@@ -1,5 +1,4 @@
-import LandingPage from './LandingPage'; // Adjust this import path if your component is in a different folder
-
+import LandingPage from './LandingPage';
 export const metadata = {
   title: "Axis Home Healthcare LLC",
   description: "You can count on Axis Home Healthcare to guide you on the right path towards a sustainable, secure, and independent future right in the comfort of your own home.",
