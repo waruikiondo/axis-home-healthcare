@@ -1,4 +1,5 @@
 import LandingPage from './LandingPage.jsx';
+
 export const metadata = {
   title: "Axis Home Healthcare LLC",
   description: "You can count on Axis Home Healthcare to guide you on the right path towards a sustainable, secure, and independent future right in the comfort of your own home.",
@@ -8,6 +9,10 @@ export const metadata = {
     description: "You can count on Axis Home Healthcare to guide you on the right path towards a sustainable, secure, and independent future right in the comfort of your own home.",
     url: "https://www.axishealthmn.com/",
     type: "website",
+  },
+  // Add this new verification block right here:
+  verification: {
+    google: "FcndaFPzfT046ZsQ1PiQj0Kxf3ukAXTaHKzfrj_dOUA",
   },
 };
 
